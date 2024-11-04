@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Verb Tenses Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 0;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>English Verb Tenses Quiz</h1>
+    <form id="quizForm">
+        <div class="question">
+            <h3>1. I ___ in miracles.</h3>
+            <ul class="options">
+                <li><input type="radio" name="q1" value="a"> a) believes</li>
+                <li><input type="radio" name="q1" value="b"> b) believe</li>
+                <li><input type="radio" name="q1" value="c"> c) believed</li>
+            </ul>
+        </div>
+        <div class="question">
+            <h3>2. She ___ in ghosts when she was a child.</h3>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="a"> a) believes</li>
+                <li><input type="radio" name="q2" value="b"> b) believed</li>
+                <li><input type="radio" name="q2" value="c"> c) believing</li>
+            </ul>
+        </div>
+        <!-- Add more questions here following the same structure -->
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                // Add the correct answers for the remaining questions here
+            };
+            let correct = 0;
+            let incorrect = 0;
+            for (const [question, answer] of Object.entries(answers)) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answer) {
+                    correct++;
+                } else {
+                    incorrect++;
+                }
+            }
+            document.getElementById('result').innerText = `Correct: ${correct}, Incorrect: ${incorrect}`;
+        });
+    </script>
+</body>
+</html>
